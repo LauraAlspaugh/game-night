@@ -40,24 +40,37 @@
   <!-- SECTION -->
   <main id="router-view">
     <div class="container-fluid">
-      <section="row">
-        <div class="col-12 col-md-4">
-          <div class="bg-secondary">
-            <img
-              src="https://images.unsplash.com/photo-1523450001312-faa4e2e37f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwcGxheWluZyUyMGJhc2tldGJhbGx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
-              alt="game player name" class="img-fluid">
-            <div class="p-3">
-              <p class="fs-2">Amanda</p>
-              <p class="fs-3">Score: 0</p>
-              <div>
-                <button>-</button>
-                <button onclick="app.GameNightPlayersController.increasePlayerScore()"
-                  class="btn btn-success">+</button>
-              </div>
+      <section class=" d-flex row align-items-center">
+        <div class="col-12 p-5 align-items-center">
+          <form class="justify-content-center" onsubmit="app.GameNightPlayersController.createGameNightPlayer(event)">
+            <label for="playerName">Player Name</label>
+            <input id="playerName" type="text" name="name" required>
+            <label for="playerImgUrl">Image Url</label>
+            <input id="playerImgUrl" type="url" name="imgUrl" required>
+            <div>
+              <button class="btn btn-info m-2" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <section id="gameNightPlayers" class="row">
+      <div class="col-12 col-md-4 p-4">
+        <div class="bg-secondary">
+          <img
+            src="https://images.unsplash.com/photo-1523450001312-faa4e2e37f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwcGxheWluZyUyMGJhc2tldGJhbGx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+            alt="game player name" class="img-fluid">
+          <div class="p-3">
+            <p class="fs-2">Amanda</p>
+            <p class="fs-3">Score: 0</p>
+            <div>
+              <button class="btn btn-danger">-</button>
+              <button onclick="app.GameNightPlayersController.increasePlayerScore()" class="btn btn-success">+</button>
             </div>
           </div>
         </div>
-        </section>
+      </div>
+    </section>
 
     </div>
     <!-- PRIMARY VIEWPORT -->

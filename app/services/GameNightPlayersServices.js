@@ -1,5 +1,6 @@
-import { AppState } from "../../../ping-pong/app/AppState.js"
-import { GameNightPlayer } from "../models/GameNightPlayer.js"
+
+import { AppState } from "../AppState.js";
+import { GameNightPlayer } from "../models/GameNightPlayer.js";
 
 class GameNightPlayersService {
     createGameNightPlayer(GameNightPlayerData) {
@@ -7,7 +8,18 @@ class GameNightPlayersService {
         console.log('here is your new pic', newGameNightPlayer);
         AppState.gameNightPlayers.push(newGameNightPlayer)
     }
+
+    decreasePlayerScore(GameNightPlayerName) {
+        const foundPlayer = AppState.gameNightPlayers.find(player => player.name == GameNightPlayerName)
+        foundPlayer.score--
+        console.log(foundPlayer);
+
+    }
+
+    increasePlayerScore(GameNightPlayerName) {
+        const foundPlayer = AppState.gameNightPlayers.find(player => player.name == GameNightPlayerName)
+        foundPlayer.score++
+        console.log('found player', foundPlayer);
+    }
 }
-decreasePlayerScore(GameNightPlayerName){
-    const foundPlayer = AppState.gameNightPlayers.find
-}
+export const gameNightPlayersService = new GameNightPlayersService()
